@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Event Details
+    </title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <header>
+        <div class="backContainer">
+            <a class="backButton" href="/">
+                <img src="../img/back_button.svg" alt="">
+                <p>back</p>
+            </a>
+        </div>
+        <div class="eventTitleContainer">
+            <h2>
+                <%= event.name %>
+            </h2>
+        </div>
+    </header>
+    <main class="detailsMain">
+        <section class="eventDetailsSection">
+            <div class="orgDetailsContainer">
+                <div class="orgInfoItem">
+                    <img src="../img/calender.svg" class="utilityIcon" alt="">
+                    <p>
+                        <%= event.date.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit' }) %>, <%= event.date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) %>
+                    </p>
+                </div>
+                <div class="orgInfoItem">
+                    <img src="../img/location.svg" class="utilityIcon" alt="">
+                    <p>
+                        <%= event.address %>, <%= event.zip_code %>
+                    </p>
+                </div>
+                <div class="orgInfoItem">
+                    <img src="../img/time.svg" class="utilityIcon" alt="">
+                    <p>
+                        <%= event.time %>h
+                    </p>
+                </div>
+            </div>
+            <div class="eventDescription">
+                <%= event.description %>
+            </div>
+            <img id="eventDetailsImage" src="<%= " ../img/uploads/" + event.image_url %>" alt="">
+        </section>
+        <section class="eventSocialSection">
+            <div class="socialElementHeading">
+                <h3>organizer</h3>
+            </div>
+            <div class="socialElementContainer">
+                <%= organizer.name %>
+            </div>
+            <div class="socialElementHeading">
+                <h3>attendees</h3>
+                <div class="postInfoItem">
+                    <img src="../img/people.svg" class="utilityIcon" alt="">
+                    <p id="attendeeCount">
+                        <%= attendees.length + "/" + event.max_attendees %>
+                    </p>
+                </div>
+            </div>
+            <div class="socialElementContainer">
+                <ul id="attendees">
+                    <% attendees.forEach(attendee=> { %>
+
+                        <li id="attendee<%= attendee.user_id %>">
+                            <%= attendee.name %>
+                        </li>
+                        <% }) %>
+                </ul>
+            </div>
+            <% if (event.created_by_user) { %>
+                <button onclick="navigateToEdit(event, '<%= event.event_id %>')" class="editButton">
+                    edit
+                </button>
+            <% } else { %>
+                <button onclick="toggleJoinEvent(event,'<%= event.event_id %>')" class='joinButton <%= event.attended ? "joined" : "" %>'>
+                    <%= event.attended ? "joined" : "join" %>
+                </button>
+            <% } %>
+        </section>
+    </main>
+    <footer>
+    </footer>
+</body>
+<script defer src="../js/eventDetails.js"></script>
+<script defer src="../js/main.js"></script>
+
+</html>

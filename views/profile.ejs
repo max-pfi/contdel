@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>profile</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <nav>
+        <div id="navTitle">profile</div>
+        <div class="navItems">
+            <a href="/">home</a>
+            <a href="event/addEvent">addEvent</a>
+            <a class="activeNav" href="/profile">profile</a>
+        </div>
+    </nav>
+    <header>
+        <div class="titleContainer">
+            <h1>profile</h1>
+        </div>
+        <div class="profileActions">
+            <button id="logoutButton">Logout</button>
+            <button id="deleteProfileButton">Delete Profile</button>
+        </div>
+    </header>
+    <main class="profileMain">
+        <section class="sectionUpcoming">
+            <h3>My upcoming events</h3>
+            <% myEvents.forEach(event=> { %>
+                <%- include('partials/post', { event: event }) %>
+                    <% }) %>
+        </section>
+        <section class="sectionHosted">
+            <h3>My hosted events</h3>
+            <% hostedEvents.forEach(event=> { %>
+                <%- include('partials/post', { event: event }) %>
+                    <% }) %>
+        </section>
+    </main>
+</body>
+<script defer src="../js/profile.js"></script>
+<script defer src="../js/main.js"></script>
+
+</html>

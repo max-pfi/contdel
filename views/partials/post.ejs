@@ -1,0 +1,37 @@
+<div class='post <%= event.official ? "officialPost" : "" %> ' id='post<%= event.event_id %>' onclick="navigateToEvent('<%= event.event_id %>')">
+    <img class="postImage" src="<%= " ../img/uploads/" + event.image_url %>" alt="">
+    <div class="postInfo">
+        <h4>
+            <%= event.name %>
+        </h4>
+        <div class="postInfoItem">
+            <img src="../img/calender<%= event.official ? "_white" : "" %>.svg" class="utilityIcon" alt="">
+            <p>
+                <%= event.date.toLocaleDateString('en-GB', { day: '2-digit', month: '2-digit', year: '2-digit' }) %>, <%= event.date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) %>
+            </p>
+        </div>
+        <div class="postInfoItem">
+            <img src="../img/location<%= event.official ? "_white" : "" %>.svg" class="utilityIcon" alt="">
+            <p>
+                <%= event.address %>
+            </p>
+        </div>
+        <div class="postInfoItem">
+            <img src="../img/people<%= event.official ? "_white" : "" %>.svg" class="utilityIcon" alt="">
+            <p id="attendeeCount<%= event.event_id %>">
+                <%= event.number_of_attendees + "/" + event.max_attendees %>
+            </p>
+        </div>
+    </div>
+    <div class="postAction">
+        <% if (event.created_by_user) { %>
+            <button onclick="navigateToEdit(event, '<%= event.event_id %>')" class="editButton">
+                edit
+            </button>
+        <% } else { %>
+            <button onclick="toggleJoinEvent(event,'<%= event.event_id %>')" class='joinButton <%= event.attended ? "joined" : "" %>'>
+                <%= event.attended ? "joined" : "join" %>
+            </button>
+        <% } %>
+    </div>
+</div>

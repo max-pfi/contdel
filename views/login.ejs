@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <div class="loginPageContainer">
+    <div class="loginContainer">
+      <h2>Login</h2>
+      <form action="/login" method="post">
+        <input type="email" id="email" name="email" placeholder="email" required><br>
+        <input type="password" id="password" name="password" placeholder="password" required><br>
+        <input type="submit" value="Login">
+      </form>
+      <p class="noDisplay" id="errorText"></p>
+      <a class="loginRegisterLink" href="/login/register">No account? Register here</a>
+    </div>
+  </div>
+</body>
+<script defer src="../js/login.js"></script>
+
+</html>

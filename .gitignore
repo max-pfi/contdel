@@ -1,0 +1,6 @@
+.env
+node_modules/
+dist
+file*.jpg
+file*.jpeg
+file*.png

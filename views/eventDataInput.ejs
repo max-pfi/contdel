@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%= newEvent ? "Add Event" : "Edit Event" %></title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <% if (newEvent) { %>
+        <nav>
+            <div id="navTitle">addEvent</div>
+            <div class="navItems">
+                <a href="/">home</a>
+                <a class="activeNav" href="#">addEvent</a>
+                <a href="/profile">profile</a>
+            </div>
+        </nav>
+    <% } else { %>
+        <div class="backContainer">
+            <a class="backButton" href="/">
+                <img src="../img/back_button.svg" alt="">
+                <p>back</p>
+            </a>
+        </div>
+    <% } %>
+    
+    <header>
+        <div class="titleContainer">
+            <h1><%= newEvent ? "Add Event" : "Edit Event" %></h1>
+        </div>
+    </header>
+    <main class="addMain">
+        <section class="inputSection">
+        <form id="addEventForm" enctype="multipart/form-data">
+            <input type="hidden" id="eventId" value="<%= newEvent ? "" : event.event_id %>" name="eventId">
+            <input id="titleInput" name="title" type="text" placeholder="title" maxlength="30" required value="<%= newEvent ? "" : event.name %>">
+            <textarea id="descriptionInput" name="description" rows="4" placeholder="description" maxlength="600" required><%= newEvent ? "" : event.description %></textarea>
+            <label for="dateInput">Date:</label>
+            <input id="dateInput" name="date" type="datetime-local" placeholder="date" value="<%= newEvent ? "" : dateTime%>" required><br>
+            <label for="durationInput">Duration (h):</label>
+            <input id="durationInput" name="duration" type="number" min="1" max="168" required value="<%= newEvent ? "" : event.time %>"><br>
+            <label for="maxAttendeesInput">Max. number of attendees:</label>
+            <input id="maxAttendeesInput" name="maxAttendees" max="100" min="1" type="number" required value="<%= newEvent ? "" : event.max_attendees %>"><br>
+            <label for="zipCodeInput">Zip Code (numbers only):</label>
+            <input id="zipCodeInput" name="zipCode" type="text" pattern="[0-9]+" maxlength="5" required value="<%= newEvent ? "" : event.zip_code %>"><br>
+            <label for="addressInput">Address:</label>
+            <input id="addressInput" name="address" type="text" maxlength="100" required value="<%= newEvent ? "" : event.address %>"><br>
+            <label id="fileInputLabel" for="fileInput">upload image</label>
+            <input id="fileInput" accept=".png, .jpg, .jpeg" name="file" type="file" placeholder="image" <%= newEvent ? "required" : "" %>>
+            <div id="addEventSubmitContainer">
+                <% if (newEvent) { %>
+                    <button id="resetButton" type="reset">reset</button>
+                    <button id="addEventButton" type="submit">add event</button>
+                <% } else { %>
+                    <button id="deleteEventButton">delete event</button>
+                    <button id="saveEventButton" type="submit">save event</button>
+                <% } %>
+                
+            </div>
+        </form>
+    </section>
+    <section class="imageSection">
+        <img id="addEventImage" src="<%= newEvent ? "../img/placeholder.png" : "../img/uploads/"+event.image_url %>" alt="preview image">
+    </section>
+    </main>
+</body>
+<script defer src="../js/eventDataInput.js"></script>
+<script defer src="../js/main.js"></script>
+
+</html>

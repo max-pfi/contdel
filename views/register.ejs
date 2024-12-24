@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <div class="loginPageContainer">
+        <div class="loginContainer">
+            <h2>Register</h2>
+            <form id="registerForm" action="/login/register" method="post">
+                <input type="text" id="username" name="username" placeholder="username" required maxlength="50"><br>
+                <input type="email" id="email" name="email" placeholder="email" required maxlength="50"><br>
+                <input type="password" id="password" name="password" placeholder="password" maxlength="50" required><br>
+                <input type="password" id="confirmPassword" name="confirmPassword" maxlength="50"
+                    placeholder="confirm password" required><br>
+                <input type="submit" value="Sign up">
+            </form>
+            <p class="noDisplay" id="errorText"></p>
+            <a class="loginRegisterLink" href="/login">Already have an account? Login here</a>
+        </div>
+    </div>
+</body>
+<script defer src="../js/register.js"></script>
+
+</html>

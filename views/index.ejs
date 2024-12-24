@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Home
+    </title>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <nav>
+        <div id="navTitle">meetUp</div>
+        <div class="navItems">
+            <a class="activeNav" href="/">home</a>
+            <a href="event/addEvent">addEvent</a>
+            <a href="/profile">profile</a>
+        </div>
+    </nav>
+    <header>
+        <div class="titleContainer">
+            <h1 id="pageTitle">meetUp</h1>
+        </div>
+    </header>
+    <main>
+        <section class="communitySection">
+            <div class="sectionHeading">
+                <h3>community</h3>
+            </div>
+            <div class="communityList">
+                <% communityEvents.forEach(event=> { %>
+                    <%- include('partials/post', { event: event }) %>
+                    <% }) %>
+            </div>
+        </section>
+        <section class="officialSection">
+            <div class="sectionHeading">
+                <h3>official</h3>
+            </div>
+            <div class="officialList">
+                <% officialEvents.forEach(event=> { %>
+                    <%- include('partials/post', { event: event }) %>
+                    <% }) %>
+            </div>
+        </section>
+    </main>
+</body>
+<script defer src="../js/home.js"></script>
+<script defer src="../js/main.js"></script>
+
+</html>
