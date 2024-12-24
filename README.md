@@ -47,6 +47,16 @@ The following libraries were used:
     - this will use nodemon
 - to compile and start the project use `npm run fast`
 
+## Server configuration and setup
+- run `terraform init` to initialize the terraform project
+- run `terraform plan` to see the changes that will be made
+- run `terraform apply` to apply the changes
+- provide the prompted variables:
+    - do_token: your digital ocean API token
+    - pvt_key: the path to your private key
+    - ssh_name: the name of the ssh key on digital ocean
+- run `terraform destroy` to destroy the server (will delete all data)
+
 ## Authors
 - Max Pfisterer
 
