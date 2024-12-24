@@ -38,12 +38,15 @@ jobs:
       - name: Run Jest tests
         run: npm test -- --coverage --outputFile=test-report.json
 
-      - name: Upload Jest coverage and test report
+      - name: Upload Jest coverage
         uses: actions/upload-artifact@v3
         with:
           name: coverage-report
           path: coverage/
 
+      - name: Upload Jest test report
+        uses: actions/upload-artifact@v3
+        with:
           name: test-report
           path: test-report.json
 
