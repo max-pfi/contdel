@@ -205,7 +205,7 @@ eventRouter.delete('/delete', async (req, res) => {
     }
 })
 
-function removeImage(image_url: string) {
+export function removeImage(image_url: string) {
     const filePath = path.join(__dirname, `../../../public/img/uploads/${image_url}`)
     fs.unlink(filePath, (err) => {
         if (err) {

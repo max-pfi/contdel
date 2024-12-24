@@ -15,6 +15,8 @@ const port = 3001
 
 export const baseUrl = `http://localhost:${port}`
 
+export let server: ReturnType<typeof app.listen>
+
 export const app = express()
 
 
@@ -51,6 +53,7 @@ app.use('/login', loginRouter)
 app.use('/profile', profileRouter)
 
 
-app.listen(port, () => {
+// eslint-disable-next-line prefer-const
+server = app.listen(port, () => {
   console.log(`Server läuft auf http://localhost:${port}`)
 });
