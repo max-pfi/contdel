@@ -11,7 +11,7 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const port = 3001
+const port = 3000
 
 export const baseUrl = `http://localhost:${port}`
 

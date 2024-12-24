@@ -1,7 +1,7 @@
 import express from 'express'
 import * as db from '../database/database'
 import { baseUrl } from '../../app'
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 
 
 export const loginRouter = express.Router()

@@ -20,7 +20,7 @@
 - [ ] Automatisierte Code-Qualitätsanalyse: Setze statische Code-Analyse-Tools ein, um Codequalität automatisiert zu überprüfen.
 
 ### 10% Testing
-- [ ] (Unit) Tests geschrieben und automatisiert
+- [x] (Unit) Tests geschrieben und automatisiert
 - [ ] Integrationstests implementiert (optional)
 - [ ] End-to-End Tests eingerichtet (optional)
 
@@ -33,10 +33,10 @@
 - [ ] Integration in eine Build-Pipeline
 
 ### 20% Infrastruktur- und Konfigurationsmanagement
-- [ ] Template Konfigurationsdateien versioniert und zentralisiert
-- [ ] Konfigurationsdateien ausgenommen
+- [x] Template Konfigurationsdateien versioniert und zentralisiert
+- [x] Konfigurationsdateien ausgenommen
 - [ ] Verwendung in einer Build-Pipeline
-- [ ] Infrastructure as Code (IaC): Nutze Tools wie Terraform oder Ansible, um die Infrastruktur als Code zu verwalten und sicherzustellen, dass Deployments wiederholbar sind.
+- [x] Infrastructure as Code (IaC): Nutze Tools wie Terraform oder Ansible, um die Infrastruktur als Code zu verwalten und sicherzustellen, dass Deployments wiederholbar sind.
 
 ### 10% Sicherheit
 - [ ] Zugangsdaten sicher hinterlegt

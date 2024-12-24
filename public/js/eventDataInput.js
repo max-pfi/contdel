@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3001'
+const baseUrl = 'http://localhost:3000'
 
 // listen for file input change and change the displayed image
 function changeImage(event, img) {
