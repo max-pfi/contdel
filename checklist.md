@@ -14,10 +14,10 @@
 - [x] .gitignore angepasst: Stelle sicher, dass unnötige Dateien nicht im Repository landen (z. B. durch ein angepasstes .gitignore-File).
 
 ### 10% Automatisierung
-- [ ] Automatisierte Builds eingerichtet
-- [ ] Automatisierte Tests implementiert
+- [x] Automatisierte Builds eingerichtet
+- [x] Automatisierte Tests implementiert
 - [ ] Automatisierte Deployments konfiguriert
-- [ ] Automatisierte Code-Qualitätsanalyse: Setze statische Code-Analyse-Tools ein, um Codequalität automatisiert zu überprüfen.
+- [x] Automatisierte Code-Qualitätsanalyse: Setze statische Code-Analyse-Tools ein, um Codequalität automatisiert zu überprüfen.
 
 ### 10% Testing
 - [x] (Unit) Tests geschrieben und automatisiert
@@ -35,7 +35,7 @@
 ### 20% Infrastruktur- und Konfigurationsmanagement
 - [x] Template Konfigurationsdateien versioniert und zentralisiert
 - [x] Konfigurationsdateien ausgenommen
-- [ ] Verwendung in einer Build-Pipeline
+- [x] Verwendung in einer Build-Pipeline
 - [x] Infrastructure as Code (IaC): Nutze Tools wie Terraform oder Ansible, um die Infrastruktur als Code zu verwalten und sicherzustellen, dass Deployments wiederholbar sind.
 
 ### 10% Sicherheit
