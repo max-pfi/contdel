@@ -1,17 +1,17 @@
 ## Checkliste für die eigene fortlaufende Übung / TechDemo in Continuous Delivery
 
 ### Einführung und Grundlagen
-- [ ] Verständnis von Continuous Delivery und dessen Bedeutung
-- [ ] Unterschiede zwischen Continuous Integration, Continuous Delivery und Continuous Deployment
-- [ ] CI-Anti Pattern identifizieren
+- [x] Verständnis von Continuous Delivery und dessen Bedeutung
+- [x] Unterschiede zwischen Continuous Integration, Continuous Delivery und Continuous Deployment
+- [x] CI-Anti Pattern identifizieren
 
 ### 20% Projekt Setup
-- [ ] Initialisierung des Repository (Git) -> (Blank Project + Project Name = nachname) 
-- [ ] Checkliste kopieren und in neues geklontes Repository/project einfügen
-- [ ] Checkliste versionieren
+- [x] Initialisierung des Repository (Git) -> (Blank Project + Project Name = nachname) 
+- [x] Checkliste kopieren und in neues geklontes Repository/project einfügen
+- [x] Checkliste versionieren
 - [ ] README anfertigen mit Verlinkungen, Hinweisen, etc. zum Inhalt des Repository
 - [ ] zweites Repository für Übungen, Ausprobieren, etc. inkl. README sowie Verlinkungen und Übersicht zu den Übungen
-- [ ] .gitignore angepasst: Stelle sicher, dass unnötige Dateien nicht im Repository landen (z. B. durch ein angepasstes .gitignore-File).
+- [x] .gitignore angepasst: Stelle sicher, dass unnötige Dateien nicht im Repository landen (z. B. durch ein angepasstes .gitignore-File).
 
 ### 10% Automatisierung
 - [ ] Automatisierte Builds eingerichtet
