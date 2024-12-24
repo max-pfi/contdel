@@ -15,7 +15,7 @@ const port = 3001
 
 export const baseUrl = `http://localhost:${port}`
 
-const app = express()
+export const app = express()
 
 
 // Set up body-parser middleware for parsing URL-encoded and JSON data

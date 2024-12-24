@@ -216,7 +216,7 @@ function removeImage(image_url: string) {
 }
 
 // input validation
-function checkInput(event: EventItem) {
+export function checkInput(event: EventItem) {
     if (!event.name || event.name.length > 30 || typeof event.name !== 'string') {
         throw new Error('Invalid title input');
     }
