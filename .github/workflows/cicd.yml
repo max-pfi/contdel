@@ -26,8 +26,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run and upload ESLint results
+      - name: Run ESLint and save results
         run: npm run lint > eslint-report.txt
+
+      - name: Upload ESLint results
         uses: actions/upload-artifact@v3
         with:
           name: eslint-results
