@@ -66,7 +66,7 @@ describe('Event Routes', () => {
 
             expect(response.status).toBe(200);
             expect(db.getEvent).toHaveBeenCalledWith(1);
-            expect(response.text).toContain('Test Event');
+            expect(response.text).toContain('Teszt Event');
         });
     });
 
