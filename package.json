@@ -8,7 +8,8 @@
     "start": "node dist/app.js",
     "fast": "npm run build && npm run start",
     "dev": "nodemon",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint . --ext .ts"
   },
   "keywords": [],
   "author": "",
