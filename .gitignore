@@ -4,3 +4,6 @@ dist
 file*.jpg
 file*.jpeg
 file*.png
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
