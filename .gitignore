@@ -8,3 +8,4 @@ file*.png
 terraform.tfstate
 terraform.tfstate.backup
 coverage/
+test-report.html

@@ -36,19 +36,21 @@ jobs:
           path: eslint-report.txt
 
       - name: Run Jest tests
-        run: npm test -- --coverage --outputFile=test-report.json
+        run: npm test -- --coverage
 
       - name: Upload Jest coverage
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: coverage-report
           path: coverage/
 
       - name: Upload Jest test report
+        if: always()
         uses: actions/upload-artifact@v3
         with:
           name: test-report
-          path: test-report.json
+          path: test-report.html
 
   build:
     runs-on: ubuntu-latest
