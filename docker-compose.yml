@@ -11,7 +11,29 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_ROOT_HOST: ${MYSQL_ROOT_HOST}
+      BASE_URL: ${BASE_URL}
+      PORT: ${PORT}
     ports:
       - "3306:3306"
     volumes:
       - ./data:/docker-entrypoint-initdb.d
+
+  app:
+    container_name: node_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      MYSQL_HOST: db
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_HOST: ${MYSQL_ROOT_HOST}
+      SESSION_SECRET: ${SESSION_SECRET}
+      BASE_URL: ${BASE_URL}
+      PORT: ${PORT}
+    depends_on:
+      - db

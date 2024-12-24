@@ -25,11 +25,11 @@
 - [ ] End-to-End Tests eingerichtet (optional)
 
 ### Deployment-Strategien
-- [ ] Deployment-Strategien identifizieren
+- [x] Deployment-Strategien identifizieren
 - [ ] Rollback-Strategien (optional)
 
 ### 10% Containerisierung
-- [ ] Docker oder ähnliche Technologien eingesetzt
+- [x] Docker oder ähnliche Technologien eingesetzt
 - [ ] Integration in eine Build-Pipeline
 
 ### 20% Infrastruktur- und Konfigurationsmanagement

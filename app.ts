@@ -11,9 +11,9 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const port = 3000
+const port = process.env.PORT
 
-export const baseUrl = `http://localhost:${port}`
+export const baseUrl = `${process.env.BASE_URL}:${port}`
 
 export let server: ReturnType<typeof app.listen>
 
@@ -55,5 +55,5 @@ app.use('/profile', profileRouter)
 
 // eslint-disable-next-line prefer-const
 server = app.listen(port, () => {
-  console.log(`Server läuft auf http://localhost:${port}`)
+  console.log(`Server läuft auf ${process.env.BASE_URL}:${port}`);
 });
