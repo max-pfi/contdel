@@ -9,7 +9,9 @@
     "fast": "npm run build && npm run start",
     "dev": "nodemon",
     "test": "jest",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "dev-db:start": "docker-compose --env-file .env -f dev-setup/docker-compose.yml up -d",
+    "dev-db:stop": "docker-compose --env-file .env -f dev-setup/docker-compose.yml down"
   },
   "keywords": [],
   "author": "",
