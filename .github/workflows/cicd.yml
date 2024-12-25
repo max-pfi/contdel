@@ -77,6 +77,11 @@ jobs:
     needs: build
     steps:
       - uses: actions/checkout@v3
+
+      - name: Extract tag name
+        id: extract-tag
+        run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
+        
       - name: Build and push the image
         run: |
           docker login --username max-pfi --password ${{ secrets.GH_PAT }} ghcr.io
