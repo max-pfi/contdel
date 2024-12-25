@@ -15,6 +15,7 @@ const config: Config = {
   moduleNameMapper: {
       '^(\\.{1,2}/.*)\\.js$': '$1',
   },
+  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
   reporters: [
     "default",
     ["./node_modules/jest-html-reporter", {
