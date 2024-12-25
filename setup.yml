@@ -23,6 +23,12 @@
       copy:
         src: ./.env
         dest: /app/.env
+      
+    - name: Sync directory
+      synchronize:
+        src: ./data/
+        dest: /app/data/
+        delete: yes
 
     - name: Update BASE_URL in .env
       lineinfile:
