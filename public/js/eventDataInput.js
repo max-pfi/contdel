@@ -1,4 +1,5 @@
-const baseUrl = 'http://localhost:3000'
+const scriptUrl = document.currentScript.src;
+const baseUrl = new URL(scriptUrl).origin;
 
 // listen for file input change and change the displayed image
 function changeImage(event, img) {

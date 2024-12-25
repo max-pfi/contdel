@@ -1,4 +1,5 @@
-const base_url = "http://localhost:3000";
+const scriptUrl = document.currentScript.src;
+const base_url = new URL(scriptUrl).origin;
 
 let joinButtonDisabled = false
 
