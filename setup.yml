@@ -1,0 +1,31 @@
+---
+- name: Configure DigitalOcean Droplet
+  hosts: all
+  become: true
+  tasks:
+    - name: Install Docker
+      shell: |
+        curl -fsSL https://get.docker.com -o get-docker.sh
+        sh get-docker.sh
+
+    - name: Create app directory
+      file:
+        path: /app
+        state: directory
+        mode: '0755'
+
+    - name: Copy docker-compose.yml
+      copy:
+        src: ./docker-compose.yml
+        dest: /app/docker-compose.yml
+
+    - name: Copy .env file
+      copy:
+        src: ./.env
+        dest: /app/.env
+
+    - name: Update BASE_URL in .env
+      lineinfile:
+        path: /app/.env
+        regexp: '^BASE_URL=.*'
+        line: "BASE_URL=http://{{ ansible_host }}"
