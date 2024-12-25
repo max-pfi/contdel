@@ -8,3 +8,4 @@ terraform.tfstate.backup
 coverage/
 node_modules/
 dist
+uploads/

@@ -30,6 +30,12 @@
         dest: /app/data/
         delete: yes
 
+    - name: Sync directory
+      synchronize:
+        src: ./uploads/
+        dest: /app/uploads/
+        delete: yes
+
     - name: Update BASE_URL in .env
       lineinfile:
         path: /app/.env

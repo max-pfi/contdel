@@ -36,6 +36,8 @@ services:
       PORT: ${PORT}
     depends_on:
       - db
+    volumes:
+      - ./uploads:/usr/src/app/public/img/uploads
 
 volumes:
   db_data:
