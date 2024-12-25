@@ -74,6 +74,7 @@ loginRouter.post('/', async (req, res) => {
       }
     })
   } catch (error) {
+    console.log(error)
     req.session.userId = undefined
     res.redirect(baseUrl + '/login?error=1') // any other error
   }
