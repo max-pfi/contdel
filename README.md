@@ -36,18 +36,24 @@ The following libraries were used:
 ### Needed
 - Node.js
 - Docker Desktop
+- Ansible cli
+- Terraform cli
 
-### Startup
+### Startup Development
 - navigate to the project folder (exercise)
 - run `npm i`
 - create a `.env` with the needed config names and passwords (example in the repo)
-- run `docker compose up -d` to start a container with the mysql server
+- run `npm run dev-db:start` to start a container with the mysql server
     - the sql file `date/CreateDB.sql` will create the tables and fill in test data
 - to start in dev mode run `npm run dev`
     - this will use nodemon
-- to compile and start the project use `npm run fast`
+- to compile and start the project use `npm run dev`
+- run `npm run dev-db:stop` to stop the container	
 
 ## Server configuration and setup
+The server setup is done with terraform and ansible. It will create the server, install docker and docker compose, create the needed directories and copy a db init script to the server. To deploy the application see the next steps.
+- make sure terraform and ansible are installed
+- setup a working ssh key and api token for the digital ocean account
 - run `terraform init` to initialize the terraform project
 - run `terraform plan` to see the changes that will be made
 - run `terraform apply` to apply the changes
@@ -56,6 +62,21 @@ The following libraries were used:
     - pvt_key: the path to your private key
     - ssh_name: the name of the ssh key on digital ocean
 - run `terraform destroy` to destroy the server (will delete all data)
+
+## Deployment
+- update the version in the `package.json` file
+- add a tag in the format `vX.X.X` to the commit
+- push the tag and wait for the pipeline to finish
+    - a docker image with the tag will be saved to the registry
+- ssh into the server and login to ghcr.io with:
+    - `docker login --username max-pfi ghcr.io`
+    - provide the personal access token
+- navigate to the app directory: `cd /app`
+- run `docker-compose down` to stop the currently running containers
+- change the used image in the `docker-compose.yml`
+    - `vim docker-compose.yml` and enter the correct image tag
+- run `docker-compose up -d` to start the updated application  
+
 
 ## Authors
 - Max Pfisterer
