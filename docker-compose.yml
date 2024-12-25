@@ -17,10 +17,11 @@ services:
       - "3306:3306"
     volumes:
       - ./data:/docker-entrypoint-initdb.d
+      - db_data:/var/lib/mysql
 
   app:
     container_name: node_app
-    image: ghcr.io/max-pfi/contdel:v0.0.2
+    image: ghcr.io/max-pfi/contdel:v0.0.3
     ports:
       - "3000:3000"
     environment:
@@ -35,3 +36,6 @@ services:
       PORT: ${PORT}
     depends_on:
       - db
+
+volumes:
+  db_data:
