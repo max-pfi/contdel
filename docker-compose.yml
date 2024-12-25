@@ -20,9 +20,7 @@ services:
 
   app:
     container_name: node_app
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/max-pfi/contdel:v0.0.2
     ports:
       - "3000:3000"
     environment:
