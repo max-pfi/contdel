@@ -70,3 +70,15 @@ jobs:
 
       - name: Build project
         run: npm run build
+
+  build-and-publish:
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build and push the image
+        run: |
+          docker login --username max-pfi --password ${{ secrets.GH_PAT }} ghcr.io
+          docker build -t ghcr.io/max-pfi/contdel:${{ env.tag }} .
+          docker push ghcr.io/max-pfi/contdel:${{ env.tag }}
