@@ -54,6 +54,7 @@ The following libraries were used:
 The server setup is done with terraform and ansible. It will create the server, install docker and docker compose, create the needed directories and copy a db init script to the server. To deploy the application see the next steps.
 - make sure terraform and ansible are installed
 - setup a working ssh key and api token for the digital ocean account
+    - put the name of the ssh_key, the path to the private ssh key and the digital ocean token in the `terraform.tfvars` file
 - run `terraform init` to initialize the terraform project
 - run `terraform plan` to see the changes that will be made
 - run `terraform apply` to apply the changes
@@ -69,7 +70,7 @@ The server setup is done with terraform and ansible. It will create the server, 
 - push the tag and wait for the pipeline to finish
     - a docker image with the tag will be saved to the registry
 - ssh into the server and login to ghcr.io with:
-    - `docker login --username max-pfi ghcr.io`
+    - `docker login --username __USERNAME___ ghcr.io`
     - provide the personal access token
 - navigate to the app directory: `cd /app`
 - run `docker-compose down` to stop the currently running containers

@@ -9,19 +9,19 @@
 - [x] Initialisierung des Repository (Git) -> (Blank Project + Project Name = nachname) 
 - [x] Checkliste kopieren und in neues geklontes Repository/project einfügen
 - [x] Checkliste versionieren
-- [ ] README anfertigen mit Verlinkungen, Hinweisen, etc. zum Inhalt des Repository
+- [x] README anfertigen mit Verlinkungen, Hinweisen, etc. zum Inhalt des Repository
 - [ ] zweites Repository für Übungen, Ausprobieren, etc. inkl. README sowie Verlinkungen und Übersicht zu den Übungen
 - [x] .gitignore angepasst: Stelle sicher, dass unnötige Dateien nicht im Repository landen (z. B. durch ein angepasstes .gitignore-File).
 
 ### 10% Automatisierung
 - [x] Automatisierte Builds eingerichtet
 - [x] Automatisierte Tests implementiert
-- [ ] Automatisierte Deployments konfiguriert
+- [x] Automatisierte Deployments konfiguriert
 - [x] Automatisierte Code-Qualitätsanalyse: Setze statische Code-Analyse-Tools ein, um Codequalität automatisiert zu überprüfen.
 
 ### 10% Testing
 - [x] (Unit) Tests geschrieben und automatisiert
-- [ ] Integrationstests implementiert (optional)
+- [x] Integrationstests implementiert (optional)
 - [ ] End-to-End Tests eingerichtet (optional)
 
 ### Deployment-Strategien
@@ -30,7 +30,7 @@
 
 ### 10% Containerisierung
 - [x] Docker oder ähnliche Technologien eingesetzt
-- [ ] Integration in eine Build-Pipeline
+- [x] Integration in eine Build-Pipeline
 
 ### 20% Infrastruktur- und Konfigurationsmanagement
 - [x] Template Konfigurationsdateien versioniert und zentralisiert
