@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import request from 'supertest'
 import { app, server } from '../app'
 import * as db from '../src/database/database'
@@ -97,8 +98,8 @@ describe('Profile Routes', () => {
     })
 
     it('returns an error if the user is not found', async () => {
-      ;(db.getHostedEvents as jest.Mock).mockResolvedValue([])
-      ;(db.deleteUser as jest.Mock).mockResolvedValue([{ affectedRows: 0 }])
+      (db.getHostedEvents as jest.Mock).mockResolvedValue([]);
+      (db.deleteUser as jest.Mock).mockResolvedValue([{ affectedRows: 0 }])
 
       const response = await request(app).delete('/profile')
 
