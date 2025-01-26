@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import request from 'supertest'
 import { app, server } from '../app'
 import * as db from '../src/database/database'
@@ -27,9 +28,9 @@ describe('Login Routes', () => {
 
   describe('POST /login/register', () => {
     it('registers a new user', async () => {
-      ;(db.getUserByEmail as jest.Mock).mockResolvedValue(null)
-      ;(db.createUser as jest.Mock).mockResolvedValue([{ affectedRows: 1 }])
-      ;(bcrypt.hash as jest.Mock).mockResolvedValue('hashed_password')
+      (db.getUserByEmail as jest.Mock).mockResolvedValue(null);
+      (db.createUser as jest.Mock).mockResolvedValue([{ affectedRows: 1 }]);
+      (bcrypt.hash as jest.Mock).mockResolvedValue('hashed_password');
 
       const response = await request(app).post('/login/register').send({
         email: 'test@example.com',
@@ -56,7 +57,7 @@ describe('Login Routes', () => {
     })
 
     it('returns an error if the user already exists', async () => {
-      ;(db.getUserByEmail as jest.Mock).mockResolvedValue({ email: 'test@example.com' })
+      (db.getUserByEmail as jest.Mock).mockResolvedValue({ email: 'test@example.com' })
 
       const response = await request(app).post('/login/register').send({
         email: 'test@example.com',
@@ -70,8 +71,8 @@ describe('Login Routes', () => {
     })
 
     it('returns an error if user creation fails', async () => {
-      ;(db.getUserByEmail as jest.Mock).mockResolvedValue(null)
-      ;(db.createUser as jest.Mock).mockResolvedValue([{ affectedRows: 0 }])
+      (db.getUserByEmail as jest.Mock).mockResolvedValue(null);
+      (db.createUser as jest.Mock).mockResolvedValue([{ affectedRows: 0 }])
 
       const response = await request(app).post('/login/register').send({
         email: 'test@example.com',
@@ -87,13 +88,12 @@ describe('Login Routes', () => {
 
   describe('POST /login', () => {
     it('returns an error for incorrect credentials', async () => {
-      ;(db.getUserByEmail as jest.Mock).mockResolvedValue({
+      (db.getUserByEmail as jest.Mock).mockResolvedValue({
         email: 'test@example.com',
         password: 'hashed_password',
         user_id: 1,
-      })
-      ;(bcrypt.compare as jest.Mock).mockResolvedValue(false)
-
+      });
+      (bcrypt.compare as jest.Mock).mockResolvedValue(false)
       const response = await request(app).post('/login').send({
         email: 'test@example.com',
         password: 'wrongPassword',
@@ -104,7 +104,7 @@ describe('Login Routes', () => {
     })
 
     it('returns an error for a non-existent user', async () => {
-      ;(db.getUserByEmail as jest.Mock).mockResolvedValue(null)
+      (db.getUserByEmail as jest.Mock).mockResolvedValue(null)
 
       const response = await request(app).post('/login').send({
         email: 'nonexistent@example.com',
