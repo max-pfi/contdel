@@ -78,16 +78,28 @@
     - ssh_name: the name of the ssh key on digital ocean
 - run `terraform destroy` to destroy the server (will delete all data)
 
+- ansible can also be run manually with the following command:
+    - `ansible-playbook -i "inventory.ini" setup.yml --extra-vars "ansible_host=__IP__ ansible_user=root ansible_ssh_private_key_file=__PATH_TO_KEY__`
+
 
 
 ## Deployment
 - at the end of the CI/CD pipeline a Docker image is pushed to the Github Container Registry
 - to update the server the following steps are needed:
-    - ssh into the server and login to ghcr.io with:
+    - ssh into the server: `ssh -i __PATH_TO_KEY__ root@__IP__`
+        - login to ghcr.io with:
         - `docker login --username max-pfi ghcr.io`
         - provide the personal access token
     - navigate to the app directory: `cd /app`
-    - run `docker-compose down` to stop the currently running containers
+    - run `docker compose down` to stop the currently running containers
     - change the used image in the `docker-compose.yml`
         - `vim docker-compose.yml` and enter the correct image tag
-    - run `docker-compose up -d` to start the updated application  
+    - run `docker compose up -d` to start the updated application  
+
+
+## Branching Strategy
+- The `master` branch is used for production releases
+    - Releases are created by pushing with a `v.X.X.X` tag
+- The `develop` branch is used for development
+- Feature branches are created from `develop` and merged back into `develop` with a pull request
+- develop is merged into master for a new release and tagged with the new version number

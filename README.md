@@ -69,14 +69,15 @@ The server setup is done with terraform and ansible. It will create the server, 
 - add a tag in the format `vX.X.X` to the commit
 - push the tag and wait for the pipeline to finish
     - a docker image with the tag will be saved to the registry
-- ssh into the server and login to ghcr.io with:
+- ssh into the server: `ssh -i __PATH_TO_KEY__ root@__IP__`
+- login to ghcr.io with:
     - `docker login --username __USERNAME___ ghcr.io`
     - provide the personal access token
 - navigate to the app directory: `cd /app`
 - run `docker-compose down` to stop the currently running containers
 - change the used image in the `docker-compose.yml`
     - `vim docker-compose.yml` and enter the correct image tag
-- run `docker-compose up -d` to start the updated application  
+- run `docker compose up -d` to start the updated application  
 
 
 ## Authors
