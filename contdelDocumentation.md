@@ -86,7 +86,7 @@
 ## Deployment
 - at the end of the CI/CD pipeline a Docker image is pushed to the Github Container Registry
 - to update the server the following steps are needed:
-    - ssh into the server: `ssh -i __PATH_TO_KEY__ root@__IP__`
+    - ssh into the server: `ssh -i __PATH_TO_KEY__ root@__IP__` (`ssh -i ~/.ssh/myKey ssh root@__IP__`)
         - login to ghcr.io with:
         - `docker login --username max-pfi ghcr.io`
         - provide the personal access token
